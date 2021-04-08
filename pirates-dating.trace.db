@@ -1,0 +1,249 @@
+2020-10-17 14:27:44 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Tabelle "PIRATE" besteht bereits
+Table "PIRATE" already exists; SQL statement:
+CREATE TABLE Pirate (
+  id IDENTITY NOT NULL PRIMARY KEY,
+  nickname VARCHAR(255) UNIQUE NOT NULL,
+  email VARCHAR(255) UNIQUE NOT NULL,
+  swordlength INT,
+  birthdate DATE,
+  description VARCHAR(4096)
+); [42101-200]
+2020-10-17 14:43:09 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Anzahl der Felder stimmt nicht überein
+Column count does not match; SQL statement:
+
+
+INSERT INTO Pirate VALUES ('ciaociao', 'captain@goldenpirates.com', 12, DATE '2015-12-17', 'Great guy');
+ [21002-200]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:453)
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:429)
+	at org.h2.message.DbException.get(DbException.java:205)
+	at org.h2.message.DbException.get(DbException.java:181)
+	at org.h2.message.DbException.get(DbException.java:170)
+	at org.h2.command.dml.Insert.prepare(Insert.java:319)
+	at org.h2.command.Parser.prepareCommand(Parser.java:744)
+	at org.h2.engine.Session.prepareLocal(Session.java:657)
+	at org.h2.command.CommandList.executeRemaining(CommandList.java:54)
+	at org.h2.command.CommandList.update(CommandList.java:67)
+	at org.h2.command.Command.executeUpdate(Command.java:251)
+	at org.h2.jdbc.JdbcStatement.executeInternal(JdbcStatement.java:228)
+	at org.h2.jdbc.JdbcStatement.execute(JdbcStatement.java:201)
+	at com.tutego.exercise.jdbc.CreateTable.main(CreateTable.java:22)
+2020-10-17 14:46:40 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Anzahl der Felder stimmt nicht überein
+Column count does not match; SQL statement:
+
+
+INSERT INTO Pirate VALUES ('ciaociao', 'captain@goldenpirates.com', 12, DATE '2015-12-17', 'Great guy');
+ [21002-200]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:453)
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:429)
+	at org.h2.message.DbException.get(DbException.java:205)
+	at org.h2.message.DbException.get(DbException.java:181)
+	at org.h2.message.DbException.get(DbException.java:170)
+	at org.h2.command.dml.Insert.prepare(Insert.java:319)
+	at org.h2.command.Parser.prepareCommand(Parser.java:744)
+	at org.h2.engine.Session.prepareLocal(Session.java:657)
+	at org.h2.command.CommandList.executeRemaining(CommandList.java:54)
+	at org.h2.command.CommandList.update(CommandList.java:67)
+	at org.h2.command.Command.executeUpdate(Command.java:251)
+	at org.h2.jdbc.JdbcStatement.executeInternal(JdbcStatement.java:228)
+	at org.h2.jdbc.JdbcStatement.execute(JdbcStatement.java:201)
+	at com.tutego.exercise.jdbc.CreateTable.main(CreateTable.java:22)
+2020-10-17 14:51:52 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax Fehler in SQL Befehl "
+
+CREATE TABLE PIRATE (
+  ID IDENTITY,
+  NICKNAME VARCHAR(255) UNIQUE NOT NULL,
+                                       
+                    
+                   
+                             
+)[*];
+
+                                                                                                           
+INSERT INTO PIRATE VALUES ('ciaociao');
+"; erwartet "identifier"
+Syntax error in SQL statement "
+
+CREATE TABLE PIRATE (
+  ID IDENTITY,
+  NICKNAME VARCHAR(255) UNIQUE NOT NULL,
+                                       
+                    
+                   
+                             
+)[*];
+
+                                                                                                           
+INSERT INTO PIRATE VALUES ('ciaociao');
+"; expected "identifier"; SQL statement:
+
+
+CREATE TABLE Pirate (
+  id IDENTITY,
+  nickname VARCHAR(255) UNIQUE NOT NULL,
+--  email VARCHAR(255) UNIQUE NOT NULL,
+--  swordlength INT,
+--  birthdate DATE,
+--  description VARCHAR(4096)
+);
+
+-- INSERT INTO Pirate VALUES ('ciaociao', 'captain@goldenpirates.com', 12, DATE '2015-12-17', 'Great guy');
+INSERT INTO Pirate VALUES ('ciaociao');
+ [42001-200]
+2020-10-17 14:52:34 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Anzahl der Felder stimmt nicht überein
+Column count does not match; SQL statement:
+
+
+-- INSERT INTO Pirate VALUES ('ciaociao', 'captain@goldenpirates.com', 12, DATE '2015-12-17', 'Great guy');
+INSERT INTO Pirate VALUES ('ciaociao');
+ [21002-200]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:453)
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:429)
+	at org.h2.message.DbException.get(DbException.java:205)
+	at org.h2.message.DbException.get(DbException.java:181)
+	at org.h2.message.DbException.get(DbException.java:170)
+	at org.h2.command.dml.Insert.prepare(Insert.java:319)
+	at org.h2.command.Parser.prepareCommand(Parser.java:744)
+	at org.h2.engine.Session.prepareLocal(Session.java:657)
+	at org.h2.command.CommandList.executeRemaining(CommandList.java:54)
+	at org.h2.command.CommandList.update(CommandList.java:67)
+	at org.h2.command.Command.executeUpdate(Command.java:251)
+	at org.h2.jdbc.JdbcStatement.executeInternal(JdbcStatement.java:228)
+	at org.h2.jdbc.JdbcStatement.execute(JdbcStatement.java:201)
+	at com.tutego.exercise.jdbc.CreateTable.main(CreateTable.java:22)
+2020-10-17 14:57:47 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Anzahl der Felder stimmt nicht überein
+Column count does not match; SQL statement:
+
+
+-- INSERT INTO Pirate VALUES ('ciaociao', 'captain@goldenpirates.com', 12, DATE '2015-12-17', 'Great guy');
+INSERT INTO Pirate VALUES ('ciaociao');
+ [21002-200]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:453)
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:429)
+	at org.h2.message.DbException.get(DbException.java:205)
+	at org.h2.message.DbException.get(DbException.java:181)
+	at org.h2.message.DbException.get(DbException.java:170)
+	at org.h2.command.dml.Insert.prepare(Insert.java:319)
+	at org.h2.command.Parser.prepareCommand(Parser.java:744)
+	at org.h2.engine.Session.prepareLocal(Session.java:657)
+	at org.h2.command.CommandList.executeRemaining(CommandList.java:54)
+	at org.h2.command.CommandList.update(CommandList.java:67)
+	at org.h2.command.Command.executeUpdate(Command.java:251)
+	at org.h2.jdbc.JdbcStatement.executeInternal(JdbcStatement.java:228)
+	at org.h2.jdbc.JdbcStatement.execute(JdbcStatement.java:201)
+	at com.tutego.exercise.jdbc.CreateTable.main(CreateTable.java:22)
+2020-10-17 16:51:40 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLDataException: Parameter "#5" wurde nicht gesetzt
+Parameter "#5" is not set; SQL statement:
+INSERT INTO Pirate (nickname, email, swordlength, birthdate, description) VALUES (?, ?, ?, ?, ?) [90012-200]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:590)
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:429)
+	at org.h2.message.DbException.get(DbException.java:205)
+	at org.h2.message.DbException.get(DbException.java:181)
+	at org.h2.expression.Parameter.checkSet(Parameter.java:83)
+	at org.h2.command.Prepared.checkParameters(Prepared.java:182)
+	at org.h2.command.CommandContainer.update(CommandContainer.java:187)
+	at org.h2.command.Command.executeUpdate(Command.java:251)
+	at org.h2.jdbc.JdbcPreparedStatement.executeUpdateInternal(JdbcPreparedStatement.java:191)
+	at org.h2.jdbc.JdbcPreparedStatement.executeUpdate(JdbcPreparedStatement.java:152)
+	at com.tutego.exercise.jdbc.PreparedInsert.main(PreparedInsert.java:34)
+2020-10-17 16:51:56 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLDataException: Unerlaubter Wert "6" für Parameter "parameterIndex"
+Invalid value "6" for parameter "parameterIndex" [90008-200]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:590)
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:429)
+	at org.h2.message.DbException.get(DbException.java:205)
+	at org.h2.message.DbException.getInvalidValueException(DbException.java:280)
+	at org.h2.jdbc.JdbcPreparedStatement.setParameter(JdbcPreparedStatement.java:1503)
+	at org.h2.jdbc.JdbcPreparedStatement.setObject(JdbcPreparedStatement.java:512)
+	at com.tutego.exercise.jdbc.PreparedInsert.main(PreparedInsert.java:33)
+2020-10-17 17:23:38 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLNonTransientException: Keine Daten verfügbar
+No data is available [2000-200]
+2020-10-17 17:29:08 database: flush
+org.h2.message.DbException: Allgemeiner Fehler: "java.lang.IllegalStateException: The file is locked: nio:D:/Dropbox/Development/solutions/pirates-dating.mv.db [1.4.200/7]"
+General error: "java.lang.IllegalStateException: The file is locked: nio:D:/Dropbox/Development/solutions/pirates-dating.mv.db [1.4.200/7]" [50000-200]
+	at org.h2.message.DbException.get(DbException.java:194)
+	at org.h2.message.DbException.convert(DbException.java:347)
+	at org.h2.mvstore.db.MVTableEngine$1.uncaughtException(MVTableEngine.java:93)
+	at org.h2.mvstore.MVStore.handleException(MVStore.java:2877)
+	at org.h2.mvstore.MVStore.panic(MVStore.java:481)
+	at org.h2.mvstore.MVStore.<init>(MVStore.java:402)
+	at org.h2.mvstore.MVStore$Builder.open(MVStore.java:3579)
+	at org.h2.mvstore.db.MVTableEngine$Store.open(MVTableEngine.java:170)
+	at org.h2.mvstore.db.MVTableEngine.init(MVTableEngine.java:103)
+	at org.h2.engine.Database.getPageStore(Database.java:2659)
+	at org.h2.engine.Database.open(Database.java:675)
+	at org.h2.engine.Database.openDatabase(Database.java:307)
+	at org.h2.engine.Database.<init>(Database.java:301)
+	at org.h2.engine.Engine.openSession(Engine.java:74)
+	at org.h2.engine.Engine.openSession(Engine.java:192)
+	at org.h2.engine.Engine.createSessionAndValidate(Engine.java:171)
+	at org.h2.engine.Engine.createSession(Engine.java:166)
+	at org.h2.engine.Engine.createSession(Engine.java:29)
+	at org.h2.engine.SessionRemote.connectEmbeddedOrServer(SessionRemote.java:340)
+	at org.h2.jdbc.JdbcConnection.<init>(JdbcConnection.java:173)
+	at org.h2.jdbc.JdbcConnection.<init>(JdbcConnection.java:152)
+	at org.h2.Driver.connect(Driver.java:69)
+	at java.sql/java.sql.DriverManager.getConnection(DriverManager.java:677)
+	at java.sql/java.sql.DriverManager.getConnection(DriverManager.java:251)
+	at com.tutego.exercise.jdbc.QueryForListOfMaps.main(PrintColumnTypes.java:12)
+Caused by: org.h2.jdbc.JdbcSQLNonTransientException: Allgemeiner Fehler: "java.lang.IllegalStateException: The file is locked: nio:D:/Dropbox/Development/solutions/pirates-dating.mv.db [1.4.200/7]"
+General error: "java.lang.IllegalStateException: The file is locked: nio:D:/Dropbox/Development/solutions/pirates-dating.mv.db [1.4.200/7]" [50000-200]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:505)
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:429)
+	... 25 more
+Caused by: java.lang.IllegalStateException: The file is locked: nio:D:/Dropbox/Development/solutions/pirates-dating.mv.db [1.4.200/7]
+	at org.h2.mvstore.DataUtils.newIllegalStateException(DataUtils.java:950)
+	at org.h2.mvstore.FileStore.open(FileStore.java:172)
+	at org.h2.mvstore.MVStore.<init>(MVStore.java:381)
+	... 19 more
+2020-10-17 17:44:26 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLDataException: Kann "DATE" "1" nicht umwandeln
+Cannot parse "DATE" constant "1" [22007-200]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:457)
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:429)
+	at org.h2.message.DbException.get(DbException.java:194)
+	at org.h2.value.ValueDate.parse(ValueDate.java:74)
+	at org.h2.value.Value.convertToDate(Value.java:1093)
+	at org.h2.value.Value.convertTo(Value.java:816)
+	at org.h2.value.Value.convertTo(Value.java:737)
+	at org.h2.value.Value.getDate(Value.java:571)
+	at org.h2.jdbc.JdbcResultSet.getDate(JdbcResultSet.java:388)
+	at com.tutego.exercise.jdbc.PirateRepository.findAll(PirateRepositoryDemo.java:47)
+	at com.tutego.exercise.jdbc.PirateRepositoryDemo.main(PirateRepositoryDemo.java:62)
+Caused by: java.lang.IllegalArgumentException: 1
+	at org.h2.util.DateTimeUtils.parseDateValue(DateTimeUtils.java:166)
+	at org.h2.value.ValueDate.parse(ValueDate.java:72)
+	... 7 more
+2020-10-17 22:17:22 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Tabelle "IMAGES" nicht gefunden
+Table "IMAGES" not found; SQL statement:
+DROP TABLE Images [42102-200]
+2020-10-17 22:18:41 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax Fehler in SQL Befehl "DROP TABLE IMAGES IF NOT[*] EXISTS"; erwartet "EXISTS"
+Syntax error in SQL statement "DROP TABLE IMAGES IF NOT[*] EXISTS"; expected "EXISTS"; SQL statement:
+DROP TABLE Images IF NOT EXISTS [42001-200]
+2020-10-18 10:52:49 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLDataException: Parameter "#6" wurde nicht gesetzt
+Parameter "#6" is not set; SQL statement:
+UPDATE Pirate SET nickname=?, email=?, swordlength=?, birthdate=?, description=? WHERE id=? [90012-200]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:590)
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:429)
+	at org.h2.message.DbException.get(DbException.java:205)
+	at org.h2.message.DbException.get(DbException.java:181)
+	at org.h2.expression.Parameter.checkSet(Parameter.java:83)
+	at org.h2.command.Prepared.checkParameters(Prepared.java:182)
+	at org.h2.command.CommandContainer.update(CommandContainer.java:187)
+	at org.h2.command.Command.executeUpdate(Command.java:251)
+	at org.h2.jdbc.JdbcPreparedStatement.executeUpdateInternal(JdbcPreparedStatement.java:191)
+	at org.h2.jdbc.JdbcPreparedStatement.executeUpdate(JdbcPreparedStatement.java:152)
+	at com.tutego.exercise.jdbc.PirateRepository.saveUpdate(PirateRepositoryDemo.java:114)
+	at com.tutego.exercise.jdbc.PirateRepository.save(PirateRepositoryDemo.java:122)
+	at com.tutego.exercise.jdbc.PirateRepositoryDemo.main(PirateRepositoryDemo.java:156)
