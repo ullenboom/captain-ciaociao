@@ -10,7 +10,8 @@ public class SprintRace {
     CountDownLatch startLatch = new CountDownLatch( 1 );
     CountDownLatch endLatch   = new CountDownLatch( NUMBER_OF_ATHLETES );
 
-    ConcurrentNavigableMap<Integer, String> records = new ConcurrentSkipListMap<>();
+    ConcurrentNavigableMap<Integer, String> records =
+        new ConcurrentSkipListMap<>();
 
     Runnable athlete = () -> {
       try {
@@ -32,7 +33,9 @@ public class SprintRace {
     // Wait for race to end
     endLatch.await();
 
-    records.forEach( ( time, name ) -> System.out.printf( "%s in %d ms%n", name, time ) );
+    records.forEach(
+      (time, name) -> System.out.printf( "%s in %d ms%n", name, time )
+    );
     //end::solution[]
   }
 }

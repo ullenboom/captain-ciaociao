@@ -21,11 +21,11 @@ class Paintbox {
   }
 
   public void acquirePens( int numberOfPens ) {
+    lock.lock();
     try {
-      lock.lock();
-
       while ( freeNumberOfPens < numberOfPens ) {
-        System.out.printf( "%d pens from paintbox requested, available only %d, someone has to wait :(%n",
+        System.out.printf( "%d pens from paintbox requested, available only %d,"
+                           + " someone has to wait :(%n",
                            numberOfPens, freeNumberOfPens );
         condition.await();
       }
@@ -39,8 +39,8 @@ class Paintbox {
   }
 
   public void releasePens( int numberOfPens ) {
+    lock.lock();
     try {
-      lock.lock();
       freeNumberOfPens += numberOfPens;
       condition.signalAll();
     }
@@ -64,12 +64,13 @@ class Child implements Runnable {
   @Override
   public void run() {
     while ( ! Thread.currentThread().isInterrupted() ) {
-      int requiredPens = ThreadLocalRandom.current().nextInt( 1, 10 + 1 );
+      ThreadLocalRandom random = ThreadLocalRandom.current();
+      int requiredPens = random.nextInt( 1, 10 + 1 );
       paintbox.acquirePens( requiredPens );
       System.out.printf( "%s got %d pens%n", name, requiredPens );
 
       try {
-        TimeUnit.MILLISECONDS.sleep( ThreadLocalRandom.current().nextInt( 1000, 3000 ) );
+        TimeUnit.MILLISECONDS.sleep( random.nextInt( 1000, 3000 ) );
       }
       catch ( InterruptedException e ) { Thread.currentThread().interrupt(); }
 
@@ -77,7 +78,7 @@ class Child implements Runnable {
       System.out.printf( "%s returned %d pens%n", name, requiredPens );
 
       try {
-        TimeUnit.SECONDS.sleep( ThreadLocalRandom.current().nextInt( 1, 5 + 1 ) );
+        TimeUnit.SECONDS.sleep( random.nextInt( 1, 5 + 1 ) );
       }
       catch ( InterruptedException e ) { Thread.currentThread().interrupt(); }
     }

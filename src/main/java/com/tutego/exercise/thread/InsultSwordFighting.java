@@ -20,8 +20,8 @@ public class InsultSwordFighting {
 
       @Override public void run() {
         while ( Thread.currentThread().isInterrupted() ) {
+          lock.lock();
           try {
-            lock.lock();
             Thread.sleep( ThreadLocalRandom.current().nextInt( 1000 ) );
             String name = Thread.currentThread().getName();
             int rndInsult = ThreadLocalRandom.current().nextInt( insults.length );

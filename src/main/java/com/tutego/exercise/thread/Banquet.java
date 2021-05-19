@@ -36,10 +36,12 @@ public class Banquet {
     }
 
     List<String> names = new ArrayList<>( Arrays.asList(
-        "Balronoe", "Xidrora", "Zobetera", "Kuecarro", "Bendover", "Bane", "Cody", "Djarin", "Enfy"
+        "Balronoe", "Xidrora", "Zobetera", "Kuecarro", "Bendover",
+        "Bane", "Cody", "Djarin", "Enfy"
     ) );
     for ( int i = 0, len = names.size(); i < len; i++ )
-      Collections.addAll( names, "Admiral " + names.get( i ), "Commander " + names.get( i ) );
+      Collections.addAll( names, "Admiral " + names.get( i ),
+                                 "Commander " + names.get( i ) );
 
     ExecutorService executors = Executors.newCachedThreadPool();
 

@@ -37,8 +37,8 @@ public class WriteInFriendshipBook {
       }
 
       @Override public void run() {
+        lock.lock();
         try {
-          lock.lock();
           for ( int i = 0; i < text.length(); i++ ) {
             book.appendChar( text.charAt( i ) );
             Thread.sleep( 1 );

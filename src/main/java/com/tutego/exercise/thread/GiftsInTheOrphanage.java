@@ -18,14 +18,16 @@ public class GiftsInTheOrphanage {
 
       @Override public void run() {
         try {
-          System.out.println( Thread.currentThread().getName() + " gives " + gift );
+          System.out.println( Thread.currentThread().getName()
+                              + " gives " + gift );
           Thread.sleep( ThreadLocalRandom.current().nextInt( 1000, 4000 ) );
         }
         catch ( InterruptedException e ) { /* Ignore */ }
       }
     }
 
-    Iterator<String> names = Arrays.asList( "Polly Zist", "Jo Ghurt", "Lisa Bonn" ).iterator();
+    Iterator<String> names =
+        Arrays.asList( "Polly Zist", "Jo Ghurt", "Lisa Bonn" ).iterator();
 
     ExecutorService crew = Executors.newCachedThreadPool( runnable -> {
       ThreadFactory threadFactory = Executors.defaultThreadFactory();
@@ -34,8 +36,9 @@ public class GiftsInTheOrphanage {
       return thread;
     } );
 
-    String[] gifs = { "Dragon", "Pomsies", "Coat", "Tablet", "Doll", "Art Station",
-                      "Bike", "Card Game", "Slime", "Nerf Blaster" };
+    String[] gifs = {
+        "Dragon", "Pomsies", "Coat", "Tablet", "Doll", "Art Station",
+        "Bike", "Card Game", "Slime", "Nerf Blaster" };
     for ( String gift : gifs ) {
       Thread.sleep( ThreadLocalRandom.current().nextInt( 1000, 2000 ) );
       crew.submit( new DistributeGift( gift ) );

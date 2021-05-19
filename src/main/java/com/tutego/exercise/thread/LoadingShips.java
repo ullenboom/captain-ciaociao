@@ -7,6 +7,7 @@ public class LoadingShips {
 
   public static void main( String[] args ) {
     //tag::solution-a[]
+    final ThreadLocalRandom random = ThreadLocalRandom.current();
     class Loader implements Runnable {
       private final BlockingQueue<String> ramp;
 
@@ -19,11 +20,11 @@ public class LoadingShips {
         while ( ! Thread.currentThread().isInterrupted() ) {
           try {
             String[] products = { "Rum", "wine", "salami", "beer", "cheese", "comics" };
-            String product = products[ ThreadLocalRandom.current().nextInt( products.length ) ]
+            String product =   products[ random.nextInt( products.length ) ]
                              + ":" + UUID.randomUUID().toString();
             ramp.put( product );
             System.out.printf( "Product with ID %s placed on the ramp%n", product );
-            TimeUnit.MILLISECONDS.sleep( ThreadLocalRandom.current().nextInt( 1000, 2000 ) );
+            TimeUnit.MILLISECONDS.sleep( random.nextInt( 1000, 2000 ) );
           }
           catch ( InterruptedException e ) { Thread.currentThread().interrupt(); }
         }
@@ -45,7 +46,7 @@ public class LoadingShips {
           try {
             String product = ramp.take();
             System.out.printf( "Product with ID %s taken off the ramp%n", product );
-            TimeUnit.MILLISECONDS.sleep( ThreadLocalRandom.current().nextInt( 1000, 2000 ) );
+            TimeUnit.MILLISECONDS.sleep( random.nextInt( 1000, 2000 ) );
           }
           catch ( InterruptedException e ) { Thread.currentThread().interrupt(); }
         }

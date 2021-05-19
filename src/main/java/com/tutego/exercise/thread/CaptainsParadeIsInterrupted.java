@@ -30,7 +30,8 @@ public class CaptainsParadeIsInterrupted {
     flagWaverThread.start();
 
     String message = "Submit 'endw' or 'endf' to end the threads or cancel to end main thread";
-    for ( String input; (input = JOptionPane.showInputDialog( message )) != null; ) {
+    for ( String input;
+          (input = JOptionPane.showInputDialog( message )) != null; ) {
       if ( input.equalsIgnoreCase( "endw" ) )
         winkerThread.interrupt();
       else if ( input.equalsIgnoreCase( "endf" ) )

@@ -41,7 +41,8 @@ public class FileChangeWatcher implements Runnable {
   }
 
   public static void main( String[] args ) {
-    Consumer<Path> callback = path -> System.out.println( "File changed " + path );
+    Consumer<Path> callback =
+        path -> System.out.println( "File changed " + path );
     new Thread( new FileChangeWatcher( "c:/file.txt", callback ) ).start();
   }
 }

@@ -18,7 +18,8 @@ class WebResourceLastModifiedCallable implements Callable<ZonedDateTime> {
     HttpURLConnection con = (HttpURLConnection) url.openConnection();
     long dateTime = con.getLastModified();
     con.disconnect();
-    return ZonedDateTime.ofInstant( Instant.ofEpochMilli( dateTime ), ZoneId.of( "UTC" ) );
+    return ZonedDateTime.ofInstant( Instant.ofEpochMilli( dateTime ),
+                                    ZoneId.of( "UTC" ) );
   }
 }
 //end::solution-1[]
@@ -33,7 +34,9 @@ public class PageLastModifiedCallableDemo {
     Future<ZonedDateTime> dateTimeFuture = executor.submit( callable );
 
     try {
-      System.out.println( executor.submit( callable ).get( 1, TimeUnit.MICROSECONDS ) );
+      System.out.println(
+          executor.submit( callable ).get( 1, TimeUnit.MICROSECONDS )
+      );
     }
     catch ( InterruptedException | ExecutionException | TimeoutException e ) {
       e.printStackTrace();
@@ -42,8 +45,11 @@ public class PageLastModifiedCallableDemo {
     try {
       ZonedDateTime wikiChangedDateTime = dateTimeFuture.get();
       System.out.println( wikiChangedDateTime );
-      System.out.println( Duration.between( wikiChangedDateTime,
-                                            ZonedDateTime.now( ZoneId.of( "UTC" ) ) ).toMinutes() );
+      System.out.println(
+          Duration.between( wikiChangedDateTime,
+                            ZonedDateTime.now( ZoneId.of( "UTC" ) ) )
+                  .toMinutes()
+      );
     }
     catch ( InterruptedException | ExecutionException e ) {
       e.printStackTrace();

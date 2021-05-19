@@ -9,7 +9,8 @@ import java.util.concurrent.SynchronousQueue;
 //tag::solution[]
 class SecureRandomBigIntegerIterator implements Iterator<BigInteger> {
 
-  private final SynchronousQueue<BigInteger> channel = new SynchronousQueue<>();
+  private final SynchronousQueue<BigInteger> channel =
+      new SynchronousQueue<>();
 
   public SecureRandomBigIntegerIterator() {
     Runnable bigIntegerPutter = () -> {
