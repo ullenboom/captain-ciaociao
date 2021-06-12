@@ -36,6 +36,7 @@ public class FairSharing {
 
   // https://en.wikipedia.org/wiki/Relative_change_and_difference
   private static int relativeDifference( int a, int b ) {
+    if ( a == b ) return 0;
     int absoluteDifference = Math.abs( a - b );
     return (int) (100. * absoluteDifference / Math.max( a, b ));
   }
